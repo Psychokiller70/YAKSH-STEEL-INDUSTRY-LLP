@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Project Gallery | YAKSH STEEL INDUSTRY LLP</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-tint": "#5f5e5e",
+                        "outline": "#747878",
+                        "tertiary-container": "#1c1b1a",
+                        "secondary-fixed": "#e0e3e6",
+                        "inverse-primary": "#c8c6c5",
+                        "primary": "#000000",
+                        "primary-container": "#1c1b1b",
+                        "tertiary": "#000000",
+                        "surface-bright": "#fdf8f8",
+                        "on-surface": "#1c1b1b",
+                        "on-tertiary-fixed-variant": "#484645",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a",
+                        "surface-container-highest": "#e5e2e1",
+                        "on-tertiary-container": "#868382",
+                        "inverse-on-surface": "#f4f0ef",
+                        "inverse-surface": "#313030",
+                        "tertiary-fixed-dim": "#cac6c4",
+                        "on-primary-fixed-variant": "#474746",
+                        "secondary-container": "#dde0e3",
+                        "on-tertiary-fixed": "#1c1b1a",
+                        "surface": "#fdf8f8",
+                        "on-primary-fixed": "#1c1b1b",
+                        "surface-container": "#f1edec",
+                        "surface-variant": "#e5e2e1",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#858383",
+                        "secondary": "#5b5f62",
+                        "surface-container-high": "#ebe7e6",
+                        "background": "#fdf8f8",
+                        "on-secondary-container": "#5f6366",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed-variant": "#43474a",
+                        "on-secondary-fixed": "#181c1f",
+                        "on-primary": "#ffffff",
+                        "primary-fixed": "#e5e2e1",
+                        "tertiary-fixed": "#e6e2df",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "secondary-fixed-dim": "#c3c7ca",
+                        "outline-variant": "#c4c7c7",
+                        "on-surface-variant": "#444748",
+                        "on-background": "#1c1b1b",
+                        "surface-container-low": "#f7f3f2",
+                        "surface-dim": "#ddd9d8",
+                        "surface-container-lowest": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "xl": "80px",
+                        "xs": "4px",
+                        "gutter": "24px",
+                        "container-max": "1280px",
+                        "lg": "48px",
+                        "sm": "12px",
+                        "base": "8px",
+                        "md": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Geist"],
+                        "label-md": ["Geist"],
+                        "body-md": ["Inter"],
+                        "headline-lg": ["Geist"],
+                        "body-lg": ["Inter"],
+                        "display-lg": ["Geist"],
+                        "display-lg-mobile": ["Geist"],
+                        "caption": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "display-lg-mobile": ["36px", { "lineHeight": "42px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "caption": ["12px", { "lineHeight": "16px", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            background-color: #fdf8f8;
+            color: #1c1b1b;
+        }
+
+        .masonry-grid {
+            column-count: 1;
+            column-gap: 24px;
+        }
+
+        @media (min-width: 768px) {
+            .masonry-grid {
+                column-count: 2;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .masonry-grid {
+                column-count: 3;
+            }
+        }
+
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 24px;
+        }
+
+        .glass-effect {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+
+<body class="font-body-md text-body-md selection:bg-primary-container selection:text-on-primary-container">
+    <!-- HEADER -->
+    <header class="sticky top-0 z-50 bg-white border-b">
+
+        <nav class="flex justify-between items-center px-6 h-20">
+
+            <!-- LOGO -->
+            <div class="font-bold text-xl">
+                YAKSH STEEL
+            </div>
+
+            <!-- DESKTOP MENU -->
+            <div class="hidden md:flex gap-6">
+                <a href="index.html" class="text-black border-b-2 border-black">Home</a>
+                <a href="about.html" class="text-gray-600 hover:text-black">About</a>
+                <a href="products.html" class="text-gray-600 hover:text-black">Products</a>
+                <a href="gallery.html" class="text-gray-600 hover:text-black">Gallery</a>
+                <a href="quality.html" class="text-gray-600 hover:text-black">Quality</a>
+                <a href="careers.html" class="text-gray-600 hover:text-black">Careers</a>
+            </div>
+
+            <!-- RIGHT SIDE -->
+            <div class="flex items-center gap-4">
+
+                <button class="hidden md:block bg-black text-white px-4 py-2">
+                    <a href="/request.html"> Get Quote</a>
+                </button>
+
+                <!-- HAMBURGER -->
+                <button id="menu-btn" class="md:hidden flex flex-col gap-1">
+                    <span class="w-6 h-0.5 bg-black"></span>
+                    <span class="w-6 h-0.5 bg-black"></span>
+                    <span class="w-6 h-0.5 bg-black"></span>
+                </button>
+
+            </div>
+
+        </nav>
+
+        <!-- MOBILE MENU -->
+        <div id="mobile-menu" class="hidden md:hidden border-t bg-white">
+
+            <div class="flex flex-col gap-4 p-6">
+
+                <a href="index.html" class="text-black">Home</a>
+                <a href="about.html" class="text-gray-600">About</a>
+                <a href="products.html" class="text-gray-600">Products</a>
+                <a href="gallery.html" class="text-gray-600">Gallery</a>
+                <a href="quality.html" class="text-gray-600">Quality</a>
+                <a href="careers.html" class="text-gray-600">Careers</a>
+
+                <button class="md:block bg-black text-white px-4 py-2">
+                    <a href="/request.html"> Get Quote</a>
+                </button>
+
+            </div>
+
+        </div>
+    </header>
+    <main class="max-w-container-max mx-auto px-gutter">
+        <!-- Header Section -->
+        <header class="py-xl border-b border-outline/10">
+            <div class="max-w-3xl">
+                <p class="font-label-md text-label-md uppercase tracking-[0.2em] text-outline mb-base">Industrial
+                    Portfolio</p>
+                <h1 class="font-display-lg text-display-lg-mobile md:text-display-lg mb-md leading-none">ARCHITECTURAL
+                    PRECISION IN STEEL</h1>
+                <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                    Explore our comprehensive gallery of structural steel fabrication, industrial infrastructure, and
+                    heavy-duty manufacturing excellence. Every weld is a testament to our commitment to durability.
+                </p>
+            </div>
+        </header>
+        <!-- Filter Controls -->
+        <div class="flex flex-wrap gap-base py-md inherit top-20 bg-surface z-40 mb-lg">
+            <button class="px-md py-sm border border-primary bg-primary text-on-primary font-label-md uppercase">All
+                Works</button>
+            <button
+                class="px-md py-sm border border-outline/30 hover:border-primary transition-colors font-label-md uppercase">Structural</button>
+            <button
+                class="px-md py-sm border border-outline/30 hover:border-primary transition-colors font-label-md uppercase">Industrial</button>
+            <button
+                class="px-md py-sm border border-outline/30 hover:border-primary transition-colors font-label-md uppercase">Bridges</button>
+            <button
+                class="px-md py-sm border border-outline/30 hover:border-primary transition-colors font-label-md uppercase">Custom
+                Fabrications</button>
+        </div>
+        <!-- Gallery Grid -->
+        <div class="masonry-grid pb-xl">
+            <!-- Item 1: Large Scale Industrial -->
+            <div class="masonry-item group cursor-pointer">
+                <div
+                    class="overflow-hidden border border-outline/10 bg-surface-container-low transition-all duration-500 group-hover:shadow-lg">
+                    <img alt="Steel Framework"
+                        class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
+                        data-alt="A wide-angle professional photograph of a massive structural steel framework for an industrial warehouse under construction. The lighting is crisp and natural, highlighting the metallic sheen and the precision of the bolted joints. The scene conveys a sense of immense scale and architectural stability within a clean, modern construction site environment. The color palette is dominated by cool grays and crisp whites."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_3km4hcOkA4zPFsEG6eLOjTcWDox5gm0lfnrCahrasWgROp6F4mfh9BTe-7rj-td2O7TuhVZ8jPiwl0ECAmSh3emPkRijW5GamRHgSZ91EpLCC-brTViiml5t-IWGq8fEmhigg8Sb1R-_DmJJU3jvbYnZGugyEYMHM0Apihw8bjcilyVurLdQJmCkz9-bxVE8EIPtbDC8S5DrXleU1X-KQNYM9h31IDF7arChmJsxycEK02P5VXI12NBCwXHqpub9-Op77DrnAPrr" />
+                    <div class="p-md">
+                        <span class="font-caption text-caption uppercase tracking-widest text-outline">Industrial •
+                            2023</span>
+                        <h3 class="font-headline-md text-headline-md mt-xs">Mega-Scale Logistics Hub</h3>
+                        <p class="font-body-md text-body-md text-on-surface-variant mt-sm">Precision engineered
+                            structural skeleton for a 50,000 sq.ft. distribution center.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Item 2: Manufacturing Detail -->
+            <div class="masonry-item group cursor-pointer">
+                <div
+                    class="overflow-hidden border border-outline/10 bg-surface-container-low transition-all duration-500 group-hover:shadow-lg">
+                    <img alt="Welding Precision"
+                        class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
+                        data-alt="A high-detail close-up of a precision robotic welding arm in an industrial manufacturing plant. Sparks are captured mid-flight against a dark, technical background. The image emphasizes high-tech manufacturing, corporate reliability, and technical excellence. The metallic surfaces reflect the intense blue-white light of the welding arc, creating a high-contrast, premium aesthetic."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuByjS2Pbtu8-TyPXUhSRHxLzcswQ7OftDlcHfI1OnkUjDZ_A9RAnnetZ8teOxwVgtDJakKaqS6BvT6xyl2HdxTGWATnpMRHO--Cbh-t6rVL-JeimFo01-Qdha3COvMQngPeqjB0rNbfS74RYbibloUz2D_crST65nyY2H6X54snyl3P77sfyYB2tHU9DG3keWzRAvyXt3BJbmTcx3nQHprra8dOxVNDW5DpDaH6iwsRKzgF-YS1AO5QI9syzeYXj1YyltfMUd_5H0HA" />
+                    <div class="p-md">
+                        <span class="font-caption text-caption uppercase tracking-widest text-outline">Process •
+                            Fabrication</span>
+                        <h3 class="font-headline-md text-headline-md mt-xs">Precision Robotic Welding</h3>
+                        <p class="font-body-md text-body-md text-on-surface-variant mt-sm">Automated systems ensuring
+                            consistent structural integrity across high-volume orders.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Item 3: Bridge Infrastructure -->
+            <div class="masonry-item group cursor-pointer">
+                <div
+                    class="overflow-hidden border border-outline/10 bg-surface-container-low transition-all duration-500 group-hover:shadow-lg">
+                    <img alt="Steel Bridge"
+                        class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
+                        data-alt="A striking architectural photograph of a modern steel suspension bridge during the golden hour. The sunlight hits the cables and girders, creating deep shadows and bright highlights that emphasize the bridge's geometric strength. The style is clean and corporate, highlighting infrastructure that is built to last. The background shows a clear sky, reinforcing a sense of permanence."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqc8aZsXnBT3ZfK5UqPhT7lhBmiSil7ryRbSjly-gvwADfehtIPwBanProCFVHbQChjEymO3kAiHKIg9FJe2QmJK4xo-niPmn25iRsrUh0Z9QjM9mlifYnFPdwfcVed3YLthkAsV1_Bovw-8iwsusRtoEjK3a2PdwNJNTLSv4me1EKW6O4tBuKeeSG8215RGM817usBKTMwHxMtQOKPhppT_icK7vXruXCxzkqMarGXEMdBQw5kyDz_6TFkmK00i6u8P7a2cU-iYvN" />
+                    <div class="p-md">
+                        <span class="font-caption text-caption uppercase tracking-widest text-outline">Infrastructure •
+                            Public</span>
+                        <h3 class="font-headline-md text-headline-md mt-xs">State Highway Overpass</h3>
+                        <p class="font-body-md text-body-md text-on-surface-variant mt-sm">Critical transit
+                            infrastructure featuring custom-fabricated heavy-duty steel girders.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Item 4: Custom Component -->
+            <div class="masonry-item group cursor-pointer">
+                <div
+                    class="overflow-hidden border border-outline/10 bg-surface-container-low transition-all duration-500 group-hover:shadow-lg">
+                    <img alt="Heavy Steel Beam"
+                        class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
+                        data-alt="A portrait shot of stacked, heavy-duty industrial steel I-beams in a storage yard. The beams are perfectly aligned, showcasing technical precision and the raw power of the material. The lighting is diffused, bringing out the matte textures of the steel gray surface. The overall mood is industrial, orderly, and professional, reflecting high-end manufacturing standards."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6lbpBmipeNrnZEiF1eGL-HYGM0y9T1t_O4wlityOytLKzMxgqrNLedv6mT4vYpgFEow6VRSPvVLUVI557YilrckyKUbFBnAoaZ5qH8oKK3kOxJ72YLQ6eTkLmMBoZvJyB6abX57nb4BmQbgC-heliGuL0YBTAuEs9wkwKaxl3emoTkDjvHRGRHm1zg4JgtYQjC5s-0kr5a-hpQKYQr4-ucchBUi_n0v2S3TMMpf8tBjUeTysGze273xVrQC4hFnnelVegcFr7Xn6L" />
+                    <div class="p-md">
+                        <span class="font-caption text-caption uppercase tracking-widest text-outline">Material •
+                            Supply</span>
+                        <h3 class="font-headline-md text-headline-md mt-xs">High-Grade I-Beams</h3>
+                        <p class="font-body-md text-body-md text-on-surface-variant mt-sm">Stocked and ready for
+                            high-load architectural applications globally.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Item 5: Commercial Structure -->
+            <div class="masonry-item group cursor-pointer">
+                <div
+                    class="overflow-hidden border border-outline/10 bg-surface-container-low transition-all duration-500 group-hover:shadow-lg">
+                    <img alt="Modern Skyscraper Frame"
+                        class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
+                        data-alt="Low angle architectural shot of a skyscraper's steel core under a clear blue sky. The geometric patterns formed by the girders create a compelling visual rhythm. The image captures the essence of modern urban growth and the structural reliability of industrial steel. The lighting is bright and optimistic, with high contrast between the dark metal and light sky."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjajbXPy8D-KhJN8lLhPMcm54vvcLGH-tszIhvjMo16TQB3HobtOMBd6dotEld2LUmCYGi3J76hENo6Zb8T7gru7Q9dWmj6oRk1MSm7JQgr2aoCg4mKc4dYGHiK-n7GQfrroRj4bDds4Pm03_Qis7oYKhB1pYBeFUPRmCgLnVn_jdTNRJBtjYXrYs78qGgwZH7pgL26vKokHXddynKJ2gIJtRCQHw-uerynwXheSnoihpfaH0KFuUx-KRe4EihwCx38x6BhZJuKuDg" />
+                    <div class="p-md">
+                        <span class="font-caption text-caption uppercase tracking-widest text-outline">Commercial •
+                            Urban</span>
+                        <h3 class="font-headline-md text-headline-md mt-xs">Metro Financial Center</h3>
+                        <p class="font-body-md text-body-md text-on-surface-variant mt-sm">Complex high-rise core
+                            fabrication requiring sub-millimeter precision.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Item 6: Quality Control -->
+            <div class="masonry-item group cursor-pointer">
+                <div
+                    class="overflow-hidden border border-outline/10 bg-surface-container-low transition-all duration-500 group-hover:shadow-lg">
+                    <img alt="Quality Inspection"
+                        class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
+                        data-alt="An industrial engineer in professional gear performing a technical inspection on a steel joint using advanced measurement tools. The setting is a clean, well-lit manufacturing floor. The focus is on the engineer's hands and the tool, signifying attention to detail and corporate accountability. The palette is a mix of industrial grays and bright safety colors, maintaining a premium look."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7gOdmoK1fbC42ZT9hrknhCrPVieujWY3uLvHlcIGNgJZOteYZsgibW9EuWYRqmadh1X1eynv_uYOU4ggerUmVG1z6zOK7cDq2cmZG_nuJbV7YbWFUwyQcly_kF1mCPMBUyBZKzD_Htuhr-WZ7yNHHJy0_cEsy-YTKDnf83curR8One933Fjmoc5YipviTHiffEcNrK1LNxTRbn_Dr5C2xDvhef5tG-T04aUj4itTKhyK15qzwPFisBbq4I8_Xby_cbfoBj_AlUhAZ" />
+                    <div class="p-md">
+                        <span class="font-caption text-caption uppercase tracking-widest text-outline">Quality •
+                            Assurance</span>
+                        <h3 class="font-headline-md text-headline-md mt-xs">Rigorous Stress Testing</h3>
+                        <p class="font-body-md text-body-md text-on-surface-variant mt-sm">Each fabrication undergoes
+                            ultrasonic and load-bearing verification.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- CTA Section -->
+        <section class="py-xl mb-xl bg-primary text-on-primary p-lg text-center">
+            <h2 class="font-headline-lg text-headline-lg mb-md">READY TO BUILD YOUR VISION?</h2>
+            <p class="font-body-lg text-body-lg mb-lg max-w-2xl mx-auto opacity-80">Consult with our engineering team
+                for high-precision steel requirements and industrial-grade fabrication services.</p>
+            <div class="flex flex-wrap justify-center gap-md">
+                <button
+                    class="bg-surface text-primary px-xl py-md font-label-md uppercase tracking-widest hover:bg-secondary-container transition-all">Request
+                    Technical Quote</button>
+                <button
+                    class="border border-on-primary text-on-primary px-xl py-md font-label-md uppercase tracking-widest hover:bg-on-primary hover:text-primary transition-all">Download
+                    Brochure</button>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-inverse-surface dark:bg-tertiary-container w-full py-xl border-t border-outline/30">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-md max-w-container-max mx-auto px-gutter">
+            <div class="col-span-1 md:col-span-1">
+                <div class="font-headline-md text-headline-md font-bold text-surface dark:text-surface-bright mb-md">
+                    YAKSH STEEL</div>
+                <p class="text-secondary-fixed-dim font-body-md text-body-md pr-md">Leading the future of industrial
+                    infrastructure through uncompromising quality and structural integrity.</p>
+            </div>
+            <div>
+                <h4 class="text-surface font-label-md text-label-md uppercase mb-md tracking-wider">Quick Links</h4>
+                <ul class="space-y-sm">
+                    <li><a class="text-secondary-fixed-dim hover:text-surface-bright transition-colors font-body-md"
+                            href="#">About Us</a></li>
+                    <li><a class="text-secondary-fixed-dim hover:text-surface-bright transition-colors font-body-md"
+                            href="#">Our Products</a></li>
+                    <li><a class="text-secondary-fixed-dim hover:text-surface-bright transition-colors font-body-md"
+                            href="#">Quality Control</a></li>
+                    <li><a class="text-secondary-fixed-dim hover:text-surface-bright transition-colors font-body-md"
+                            href="#">Compliance</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-surface font-label-md text-label-md uppercase mb-md tracking-wider">Legal</h4>
+                <ul class="space-y-sm">
+                    <li><a class="text-secondary-fixed-dim hover:text-surface-bright transition-colors font-body-md"
+                            href="#">Privacy Policy</a></li>
+                    <li><a class="text-secondary-fixed-dim hover:text-surface-bright transition-colors font-body-md"
+                            href="#">Terms of Service</a></li>
+                    <li><a class="text-secondary-fixed-dim hover:text-surface-bright transition-colors font-body-md"
+                            href="#">Sitemap</a></li>
+                    <li><a class="text-secondary-fixed-dim hover:text-surface-bright transition-colors font-body-md"
+                            href="#">Global Locations</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-surface font-label-md text-label-md uppercase mb-md tracking-wider">Connect</h4>
+                <p class="text-secondary-fixed-dim font-body-md mb-md">1204 Industrial Hub, Steel Sector<br />Gujarat,
+                    India</p>
+                <div class="flex gap-md">
+                    <span
+                        class="material-symbols-outlined text-secondary-fixed-dim cursor-pointer hover:text-surface-bright">mail</span>
+                    <span
+                        class="material-symbols-outlined text-secondary-fixed-dim cursor-pointer hover:text-surface-bright">call</span>
+                    <span
+                        class="material-symbols-outlined text-secondary-fixed-dim cursor-pointer hover:text-surface-bright">business</span>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-container-max mx-auto px-gutter mt-xl pt-lg border-t border-outline/20">
+            <div class="text-secondary-fixed-dim font-body-md text-body-md text-center">
+                © 2024 YAKSH STEEL INDUSTRY LLP. INDUSTRIAL EXCELLENCE SECURED.
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Micro-interaction for filter buttons
+        const filterButtons = document.querySelectorAll('.flex.flex-wrap.gap-base button');
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterButtons.forEach(b => {
+                    b.classList.remove('bg-primary', 'text-on-primary');
+                    b.classList.add('border-outline/30');
+                });
+                btn.classList.add('bg-primary', 'text-on-primary');
+                btn.classList.remove('border-outline/30');
+            });
+        });
+
+        // Sticky Navbar Reveal effect
+        let lastScroll = 0;
+        window.addEventListener("scroll", () => {
+            const currentScroll = window.pageYOffset;
+            const nav = document.querySelector('nav');
+            if (currentScroll > lastScroll && currentScroll > 100) {
+                nav.style.transform = 'translateY(-100%)';
+            } else {
+                nav.style.transform = 'translateY(0)';
+            }
+            lastScroll = currentScroll;
+        });
+        const btn = document.getElementById("menu-btn");
+        const menu = document.getElementById("mobile-menu");
+
+        btn.addEventListener("click", () => {
+            menu.classList.toggle("hidden");
+        });
+        
+    </script>
+</body>
+
+</html>
