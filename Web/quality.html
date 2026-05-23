@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Geist:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(74, 78, 81, 0.1);
+        }
+
+        body {
+            background-color: #fdf8f8;
+            color: #1c1b1b;
+        }
+    </style>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-tint": "#5f5e5e",
+                        "outline": "#747878",
+                        "tertiary-container": "#1c1b1a",
+                        "secondary-fixed": "#e0e3e6",
+                        "inverse-primary": "#c8c6c5",
+                        "primary": "#000000",
+                        "primary-container": "#1c1b1b",
+                        "tertiary": "#000000",
+                        "surface-bright": "#fdf8f8",
+                        "on-surface": "#1c1b1b",
+                        "on-tertiary-fixed-variant": "#484645",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a",
+                        "surface-container-highest": "#e5e2e1",
+                        "on-tertiary-container": "#868382",
+                        "inverse-on-surface": "#f4f0ef",
+                        "inverse-surface": "#313030",
+                        "tertiary-fixed-dim": "#cac6c4",
+                        "on-primary-fixed-variant": "#474746",
+                        "secondary-container": "#dde0e3",
+                        "on-tertiary-fixed": "#1c1b1a",
+                        "surface": "#fdf8f8",
+                        "on-primary-fixed": "#1c1b1b",
+                        "surface-container": "#f1edec",
+                        "surface-variant": "#e5e2e1",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#858383",
+                        "secondary": "#5b5f62",
+                        "surface-container-high": "#ebe7e6",
+                        "background": "#fdf8f8",
+                        "on-secondary-container": "#5f6366",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed-variant": "#43474a",
+                        "on-secondary-fixed": "#181c1f",
+                        "on-primary": "#ffffff",
+                        "primary-fixed": "#e5e2e1",
+                        "tertiary-fixed": "#e6e2df",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "secondary-fixed-dim": "#c3c7ca",
+                        "outline-variant": "#c4c7c7",
+                        "on-surface-variant": "#444748",
+                        "on-background": "#1c1b1b",
+                        "surface-container-low": "#f7f3f2",
+                        "surface-dim": "#ddd9d8",
+                        "surface-container-lowest": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "xl": "80px",
+                        "xs": "4px",
+                        "gutter": "24px",
+                        "container-max": "1280px",
+                        "lg": "48px",
+                        "sm": "12px",
+                        "base": "8px",
+                        "md": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Geist"],
+                        "label-md": ["Geist"],
+                        "body-md": ["Inter"],
+                        "headline-lg": ["Geist"],
+                        "body-lg": ["Inter"],
+                        "display-lg": ["Geist"],
+                        "display-lg-mobile": ["Geist"],
+                        "caption": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "display-lg-mobile": ["36px", { "lineHeight": "42px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "caption": ["12px", { "lineHeight": "16px", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+
+<body class="font-body-md text-on-background selection:bg-secondary-container">
+      <!-- HEADER -->
+      <header class="sticky top-0 z-50 bg-white border-b">
+
+        <nav class="flex justify-between items-center px-6 h-20">
+
+            <!-- LOGO -->
+            <div class="font-bold text-xl">
+                YAKSH STEEL
+            </div>
+
+            <!-- DESKTOP MENU -->
+            <div class="hidden md:flex gap-6">
+                <a href="index.html" class="text-black border-b-2 border-black">Home</a>
+                <a href="about.html" class="text-gray-600 hover:text-black">About</a>
+                <a href="products.html" class="text-gray-600 hover:text-black">Products</a>
+                <a href="gallery.html" class="text-gray-600 hover:text-black">Gallery</a>
+                <a href="quality.html" class="text-gray-600 hover:text-black">Quality</a>
+                <a href="careers.html" class="text-gray-600 hover:text-black">Careers</a>
+            </div>
+
+            <!-- RIGHT SIDE -->
+            <div class="flex items-center gap-4">
+
+                <button class="hidden md:block bg-black text-white px-4 py-2">
+                    <a href="/request.html"> Get Quote</a>
+                </button>
+
+                <!-- HAMBURGER -->
+                <button id="menu-btn" class="md:hidden flex flex-col gap-1">
+                    <span class="w-6 h-0.5 bg-black"></span>
+                    <span class="w-6 h-0.5 bg-black"></span>
+                    <span class="w-6 h-0.5 bg-black"></span>
+                </button>
+
+            </div>
+
+        </nav>
+
+        <!-- MOBILE MENU -->
+        <div id="mobile-menu" class="hidden md:hidden border-t bg-white">
+
+            <div class="flex flex-col gap-4 p-6">
+
+                <a href="index.html" class="text-black">Home</a>
+                <a href="about.html" class="text-gray-600">About</a>
+                <a href="products.html" class="text-gray-600">Products</a>
+                <a href="gallery.html" class="text-gray-600">Gallery</a>
+                <a href="quality.html" class="text-gray-600">Quality</a>
+                <a href="careers.html" class="text-gray-600">Careers</a>
+
+                <button class="md:block bg-black text-white px-4 py-2">
+                    <a href="/request.html"> Get Quote</a>
+                </button>
+
+            </div>
+
+        </div>
+    </header>
+    <main class="max-w-container-max mx-auto px-gutter pb-xl">
+        <!-- Hero Section: Quality and Trust -->
+        <section class="py-xl border-b border-outline/10">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-xl items-center">
+                <div>
+                    <span
+                        class="inline-block px-sm py-xs bg-secondary-container text-on-secondary-container text-caption font-bold tracking-widest uppercase mb-md">Operational
+                        Excellence</span>
+                    <h1 class="font-display-lg text-display-lg mb-md leading-tight">Quality &amp; <br />Compliance Hub
+                    </h1>
+                    <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+                        Ensuring structural integrity through rigorous compliance and world-class quality protocols.
+                        YAKSH STEEL INDUSTRY LLP is committed to industrial excellence secured by legal transparency.
+                    </p>
+                </div>
+                <div class="relative h-[400px] overflow-hidden group">
+                    <img alt="Industrial Steel Quality"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        data-alt="A macro photograph of high-grade industrial steel beams featuring sharp, clean edges and a brushed metallic texture. The lighting is cold and precise, reflecting a high-end corporate engineering environment. The composition focuses on the geometric precision of the steel, symbolizing strength and industrial quality. The overall aesthetic is minimalist and heavy-duty premium."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuARYPHTTqeR4RYDJdkBAWOSX9n8yF0BO9BBqyp7tMa2twJWELjAr1huSOjsDheTC1F631oamkICG8by98bmOP5PTRYE2pW8hmmmjdoR89-6qSajH7GSP43xQnli-MXIfelUL8szdVcQ5O9yqAYBAClC2KpBGj7M-W2aEJs9p3NhJt8VWLCxEXQcfsMNmlTPkki1QWeMZNidBlX30TVMKaleh4RMY1HXtN6KrzwwzatUdjsux4x5SLf4fcbpftHG1QSKCANlSP0ydHu8" />
+                    <div class="absolute inset-0 bg-primary/10 mix-blend-multiply"></div>
+                </div>
+            </div>
+        </section>
+        <!-- Trust Center: Corporate Identity -->
+        <section class="py-xl">
+            <div class="mb-lg">
+                <h2 class="font-headline-lg text-headline-lg mb-sm">Trust Center</h2>
+                <div class="h-1 w-20 bg-primary"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-md">
+                <!-- Registration Card -->
+                <div class="p-lg bg-surface-container-low border border-outline/20 relative overflow-hidden">
+                    <span
+                        class="material-symbols-outlined absolute -right-4 -top-4 text-[120px] opacity-5 text-outline">verified</span>
+                    <h3 class="font-label-md text-label-md uppercase text-on-secondary-container mb-md">Entity
+                        Registration</h3>
+                    <div class="space-y-sm">
+                        <div class="flex justify-between border-b border-outline/10 pb-xs">
+                            <span class="text-caption uppercase text-secondary">Name</span>
+                            <span class="font-label-md">YAKSH STEEL INDUSTRY LLP</span>
+                        </div>
+                        <div class="flex justify-between border-b border-outline/10 pb-xs">
+                            <span class="text-caption uppercase text-secondary">LLPIN</span>
+                            <span class="font-label-md text-primary font-bold">ACQ-8765</span>
+                        </div>
+                        <div class="flex justify-between border-b border-outline/10 pb-xs">
+                            <span class="text-caption uppercase text-secondary">RoC Status</span>
+                            <span class="font-label-md">Uttar Pradesh I</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Active Status Card -->
+                <div class="p-lg bg-primary text-on-primary border border-primary relative">
+                    <h3 class="font-label-md text-label-md uppercase text-outline-variant mb-md">Operational Status</h3>
+                    <div class="flex items-center gap-md my-lg">
+                        <div class="w-4 h-4 rounded-full bg-green-500 animate-pulse"></div>
+                        <span class="font-headline-md text-headline-md tracking-tighter">ACTIVE</span>
+                    </div>
+                    <p class="text-caption text-outline-variant italic">Last updated with Ministry of Corporate Affairs:
+                        2024</p>
+                </div>
+                <!-- Compliance Grade Card -->
+                <div class="p-lg bg-surface-container border border-outline/20 flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-label-md text-label-md uppercase text-on-secondary-container mb-md">Compliance
+                            Rating</h3>
+                        <div class="flex gap-xs mb-sm">
+                            <span class="material-symbols-outlined text-primary"
+                                style="font-variation-settings: 'FILL' 1;">star</span>
+                            <span class="material-symbols-outlined text-primary"
+                                style="font-variation-settings: 'FILL' 1;">star</span>
+                            <span class="material-symbols-outlined text-primary"
+                                style="font-variation-settings: 'FILL' 1;">star</span>
+                            <span class="material-symbols-outlined text-primary"
+                                style="font-variation-settings: 'FILL' 1;">star</span>
+                            <span class="material-symbols-outlined text-primary"
+                                style="font-variation-settings: 'FILL' 1;">star</span>
+                        </div>
+                    </div>
+                    <p class="text-body-md text-on-surface-variant">Tier-1 Industrial Compliance maintained through
+                        consistent internal audits and regulatory adherence.</p>
+                </div>
+            </div>
+        </section>
+        <!-- Quality Assurance Protocols: Bento Grid -->
+        <section class="py-xl">
+            <div class="mb-lg">
+                <h2 class="font-headline-lg text-headline-lg mb-sm">Quality Assurance Protocols</h2>
+                <p class="text-body-md text-secondary">Engineering excellence through scientific verification.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-md h-auto md:h-[600px]">
+                <!-- Metallurgical Testing -->
+                <div
+                    class="md:col-span-2 md:row-span-2 bg-surface-container-highest border border-outline/20 p-lg flex flex-col group relative overflow-hidden">
+                    <img alt="Metallurgical Lab"
+                        class="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:opacity-30 transition-opacity"
+                        data-alt="A detailed, high-contrast close-up of a metallurgical testing laboratory. Scientific instruments measure the tensile strength of a steel rod under bright, sterile white studio lighting. The color palette is clinical and sophisticated, with cold grays, blacks, and sharp metallic highlights. The image communicates technical precision and high-standard industrial protocol."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMvjoPTHyU4B4lt_8M0H3Q6GWZhJyYzRBu2uvs8gVClS4da05EwPa5K-EbxxkFddI6XbSZLVOzvDxi0ufhaIUS-Y_lMrXv5VqFeEgudaUOuaTnvUYrj5v5SAtUJ6hCHaF2B5B7GFaNsYXgYFFe3lkvipNbzW28DuXRCMzRApuyIxuzPWYYd619IQyhzkfbmZNsIUX6W3qT6-NUJrjZKoQ8WFfJbAqetN60hAao7tvLEZ4FzN8mGItvh36IcfM_jYPJXhh4KUy1je0o" />
+                    <div class="relative z-10 h-full flex flex-col">
+                        <span class="material-symbols-outlined text-primary mb-md">biotech</span>
+                        <h3 class="font-headline-md text-headline-md mb-md">Phase 01: Metallurgical Analysis</h3>
+                        <p class="text-body-md text-on-surface-variant mb-auto">Every batch undergoes rigorous chemical
+                            composition analysis and grain structure verification in our certified internal laboratory.
+                        </p>
+                        <div class="flex gap-sm">
+                            <span class="px-sm py-xs border border-primary text-caption font-bold uppercase">XRF
+                                Spectrometry</span>
+                            <span class="px-sm py-xs border border-primary text-caption font-bold uppercase">Hardness
+                                Testing</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Load Stress -->
+                <div
+                    class="md:col-span-2 bg-white border border-outline/20 p-lg flex items-center justify-between group">
+                    <div class="max-w-[60%]">
+                        <h3 class="font-headline-md text-headline-md mb-xs">Structural Stress Test</h3>
+                        <p class="text-caption text-secondary">Verified resilience under extreme load conditions as per
+                            industrial standards.</p>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-display-lg font-bold text-primary">99.9%</span>
+                        <p class="text-caption font-bold uppercase text-primary">Tolerance</p>
+                    </div>
+                </div>
+                <!-- Certification 1 -->
+                <div
+                    class="bg-surface-container-low border border-outline/20 p-lg flex flex-col justify-center items-center text-center">
+                    <span class="material-symbols-outlined text-primary text-[48px] mb-sm">verified_user</span>
+                    <h4 class="font-label-md text-label-md uppercase mb-xs font-bold">ISO 9001:2015</h4>
+                    <p class="text-caption text-secondary">Quality Mgmt Systems</p>
+                </div>
+                <!-- Certification 2 -->
+                <div
+                    class="bg-surface-container-low border border-outline/20 p-lg flex flex-col justify-center items-center text-center">
+                    <span class="material-symbols-outlined text-primary text-[48px] mb-sm">workspace_premium</span>
+                    <h4 class="font-label-md text-label-md uppercase mb-xs font-bold">IS 2062</h4>
+                    <p class="text-caption text-secondary">Steel Standard Regs</p>
+                </div>
+            </div>
+        </section>
+        <!-- Interactive Certification Request -->
+        <section class="py-xl bg-primary text-on-primary">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-xl px-lg">
+                <div>
+                    <h2 class="font-display-lg text-display-lg mb-md">Verify Batch Compliance</h2>
+                    <p class="text-body-lg text-outline-variant">Enter your Batch ID or Dispatch Note number to download
+                        the Mill Test Certificate (MTC) and quality reports for your specific procurement.</p>
+                </div>
+                <div class="flex flex-col justify-center">
+                    <div class="flex gap-xs">
+                        <input
+                            class="flex-grow bg-white/10 border-b-2 border-white/30 px-md py-md text-white placeholder:text-white/40 focus:outline-none focus:border-white transition-colors font-label-md uppercase"
+                            placeholder="ENTER BATCH NUMBER (e.g., YK-2024-001)" type="text" />
+                        <button
+                            class="bg-white text-primary px-lg py-md font-bold uppercase hover:bg-outline-variant transition-colors">Verify</button>
+                    </div>
+                    <p class="mt-sm text-caption text-white/50">* MTC records are maintained for 10 years from the date
+                        of dispatch.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Footer Component -->
+    <footer class="bg-inverse-surface text-inverse-on-surface w-full py-xl border-t border-outline/30">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-md max-w-container-max mx-auto px-gutter">
+            <div class="md:col-span-1">
+                <div class="font-headline-md text-headline-md font-bold text-surface mb-md">YAKSH STEEL</div>
+                <p class="text-body-md opacity-60">LLPIN: ACQ-8765<br />Industrial Sector, Uttar Pradesh, India</p>
+            </div>
+            <div>
+                <h4 class="font-label-md text-label-md uppercase tracking-widest text-surface mb-md">Company</h4>
+                <ul class="space-y-sm">
+                    <li><a class="text-secondary-fixed-dim hover:text-surface-bright transition-colors" href="#">Privacy
+                            Policy</a></li>
+                    <li><a class="text-secondary-fixed-dim hover:text-surface-bright transition-colors" href="#">Terms
+                            of Service</a></li>
+                    <li><a class="text-surface-bright underline" href="#">Compliance</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-label-md text-label-md uppercase tracking-widest text-surface mb-md">Resources</h4>
+                <ul class="space-y-sm">
+                    <li><a class="text-secondary-fixed-dim hover:text-surface-bright transition-colors"
+                            href="#">Sitemap</a></li>
+                    <li><a class="text-secondary-fixed-dim hover:text-surface-bright transition-colors" href="#">Global
+                            Locations</a></li>
+                    <li><a class="text-secondary-fixed-dim hover:text-surface-bright transition-colors" href="#">MTC
+                            Verification</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-label-md text-label-md uppercase tracking-widest text-surface mb-md">Contact</h4>
+                <p class="text-body-md opacity-60">Enquiries: compliance@yakshsteel.com</p>
+                <div class="flex gap-md mt-md">
+                    <a class="hover:opacity-80 transition-opacity" href="#"><span
+                            class="material-symbols-outlined">link</span></a>
+                    <a class="hover:opacity-80 transition-opacity" href="#"><span
+                            class="material-symbols-outlined">mail</span></a>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-container-max mx-auto px-gutter mt-xl pt-lg border-t border-white/10 text-center">
+            <p class="text-body-md opacity-50 font-body-md">© 2024 YAKSH STEEL INDUSTRY LLP. INDUSTRIAL EXCELLENCE
+                SECURED.</p>
+        </div>
+    </footer>
+    <script>
+        // Simple micro-interaction for hover effects on cards
+        document.querySelectorAll('.p-lg').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-2px)';
+                card.style.transition = 'transform 0.3s ease';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0px)';
+            });
+        });
+
+        // Verification button alert
+        const verifyBtn = document.querySelector('button.bg-white');
+        if (verifyBtn) {
+            verifyBtn.addEventListener('click', () => {
+                const input = document.querySelector('input[placeholder*="BATCH"]');
+                if (input.value.trim() !== "") {
+                    alert('Verifying Certificate for ' + input.value + '. Accessing secure archives...');
+                } else {
+                    alert('Please enter a valid Batch ID.');
+                }
+            });
+        }
+        const btn = document.getElementById("menu-btn");
+        const menu = document.getElementById("mobile-menu");
+
+        btn.addEventListener("click", () => {
+            menu.classList.toggle("hidden");
+        });
+    </script>
+</body>
+
+</html>
