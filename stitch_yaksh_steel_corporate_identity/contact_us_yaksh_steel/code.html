@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Geist:wght@400;500;600;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .steel-grid {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(74, 78, 81, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(74, 78, 81, 0.05) 1px, transparent 1px);
+        }
+    </style>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-tint": "#5f5e5e",
+                        "outline": "#747878",
+                        "tertiary-container": "#1c1b1a",
+                        "secondary-fixed": "#e0e3e6",
+                        "inverse-primary": "#c8c6c5",
+                        "primary": "#000000",
+                        "primary-container": "#1c1b1b",
+                        "tertiary": "#000000",
+                        "surface-bright": "#fdf8f8",
+                        "on-surface": "#1c1b1b",
+                        "on-tertiary-fixed-variant": "#484645",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a",
+                        "surface-container-highest": "#e5e2e1",
+                        "on-tertiary-container": "#868382",
+                        "inverse-on-surface": "#f4f0ef",
+                        "inverse-surface": "#313030",
+                        "tertiary-fixed-dim": "#cac6c4",
+                        "on-primary-fixed-variant": "#474746",
+                        "secondary-container": "#dde0e3",
+                        "on-tertiary-fixed": "#1c1b1a",
+                        "surface": "#fdf8f8",
+                        "on-primary-fixed": "#1c1b1b",
+                        "surface-container": "#f1edec",
+                        "surface-variant": "#e5e2e1",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#858383",
+                        "secondary": "#5b5f62",
+                        "surface-container-high": "#ebe7e6",
+                        "background": "#fdf8f8",
+                        "on-secondary-container": "#5f6366",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed-variant": "#43474a",
+                        "on-secondary-fixed": "#181c1f",
+                        "on-primary": "#ffffff",
+                        "primary-fixed": "#e5e2e1",
+                        "tertiary-fixed": "#e6e2df",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "secondary-fixed-dim": "#c3c7ca",
+                        "outline-variant": "#c4c7c7",
+                        "on-surface-variant": "#444748",
+                        "on-background": "#1c1b1b",
+                        "surface-container-low": "#f7f3f2",
+                        "surface-dim": "#ddd9d8",
+                        "surface-container-lowest": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "xl": "80px",
+                        "xs": "4px",
+                        "gutter": "24px",
+                        "container-max": "1280px",
+                        "lg": "48px",
+                        "sm": "12px",
+                        "base": "8px",
+                        "md": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Geist"],
+                        "label-md": ["Geist"],
+                        "body-md": ["Inter"],
+                        "headline-lg": ["Geist"],
+                        "body-lg": ["Inter"],
+                        "display-lg": ["Geist"],
+                        "display-lg-mobile": ["Geist"],
+                        "caption": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "display-lg-mobile": ["36px", { "lineHeight": "42px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "caption": ["12px", { "lineHeight": "16px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-background text-on-background font-body-md selection:bg-primary-fixed selection:text-primary">
+    <!-- HEADER -->
+    <header class="sticky top-0 z-50 bg-white border-b">
+
+        <nav class="flex justify-between items-center px-6 h-20">
+
+            <!-- LOGO -->
+            <div class="font-bold text-xl">
+                YAKSH STEEL
+            </div>
+
+            <!-- DESKTOP MENU -->
+            <div class="hidden md:flex gap-6">
+                <a href="/home_yaksh_steel/code.html" class="text-black border-b-2 border-black">Home</a>
+                <a href="/about_us_yaksh_steel/code.html" class="text-gray-600 hover:text-black">About</a>
+                <a href="/products_services_yaksh_steel/code.html" class="text-gray-600 hover:text-black">Products</a>
+                <a href="/gallery_yaksh_steel/code.html" class="text-gray-600 hover:text-black">Gallery</a>
+                <a href="/quality_compliance_yaksh_steel/code.html" class="text-gray-600 hover:text-black">Quality</a>
+                <a href="/careers_yaksh_steel/code.html" class="text-gray-600 hover:text-black">Careers</a>
+            </div>
+
+            <!-- RIGHT SIDE -->
+            <div class="flex items-center gap-4">
+
+                <button class="hidden md:block bg-black text-white px-4 py-2">
+                    <a href="/request_a_quote_yaksh_steel/code.html"> Get Quote</a>
+                </button>
+
+                <!-- HAMBURGER -->
+                <button id="menu-btn" class="md:hidden flex flex-col gap-1">
+                    <span class="w-6 h-0.5 bg-black"></span>
+                    <span class="w-6 h-0.5 bg-black"></span>
+                    <span class="w-6 h-0.5 bg-black"></span>
+                </button>
+
+            </div>
+
+        </nav>
+
+        <!-- MOBILE MENU -->
+        <div id="mobile-menu" class="hidden md:hidden border-t bg-white">
+
+            <div class="flex flex-col gap-4 p-6">
+
+                <a href="/home_yaksh_steel/code.html" class="text-black">Home</a>
+                <a href="/about_us_yaksh_steel/code.html" class="text-gray-600">About</a>
+                <a href="/products_services_yaksh_steel/code.html" class="text-gray-600">Products</a>
+                <a href="/gallery_yaksh_steel/code.html" class="text-gray-600">Gallery</a>
+                <a href="/quality_compliance_yaksh_steel/code.html" class="text-gray-600">Quality</a>
+                <a href="/careers_yaksh_steel/code.html" class="text-gray-600">Careers</a>
+
+                <button class="md:block bg-black text-white px-4 py-2">
+                    <a href="/request_a_quote_yaksh_steel/code.html"> Get Quote</a>
+                </button>
+
+            </div>
+
+        </div>
+    </header>
+    <main class="steel-grid">
+        <!-- Hero / Section Header -->
+        <section class="max-w-container-max mx-auto px-gutter pt-xl pb-lg border-b border-outline/10">
+            <div class="flex flex-col md:flex-row justify-between items-end gap-md">
+                <div class="max-w-2xl">
+                    <span
+                        class="font-label-md text-label-md text-secondary uppercase tracking-[0.2em] mb-sm block">Contact
+                        Excellence</span>
+                    <h1 class="font-display-lg text-display-lg-mobile md:text-display-lg leading-tight">Operational
+                        Presence. <br />Industrial Integrity.</h1>
+                </div>
+                <div class="hidden md:block pb-xs">
+                    <p class="font-body-lg text-body-lg text-secondary max-w-xs text-right">Connect with our engineering
+                        team for technical specifications and project inquiries.</p>
+                </div>
+            </div>
+        </section>
+        <!-- Main Contact Grid -->
+        <section class="max-w-container-max mx-auto px-gutter py-xl">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-xl">
+                <!-- Left Column: Contact Form -->
+                <div class="md:col-span-7">
+                    <div class="bg-surface border border-outline/20 p-md md:p-lg">
+                        <h2 class="font-headline-lg text-headline-lg mb-lg">Inquiry Form</h2>
+                        <form class="space-y-md">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+                                <div class="space-y-xs">
+                                    <label class="font-label-md text-label-md uppercase text-outline">Full Name</label>
+                                    <input
+                                        class="w-full bg-surface-container-low border border-outline/30 px-md py-sm focus:ring-1 focus:ring-primary outline-none transition-all"
+                                        placeholder="John Doe" type="text" />
+                                </div>
+                                <div class="space-y-xs">
+                                    <label class="font-label-md text-label-md uppercase text-outline">Email
+                                        Address</label>
+                                    <input
+                                        class="w-full bg-surface-container-low border border-outline/30 px-md py-sm focus:ring-1 focus:ring-primary outline-none transition-all"
+                                        placeholder="john@example.com" type="email" />
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+                                <div class="space-y-xs">
+                                    <label
+                                        class="font-label-md text-label-md uppercase text-outline">Organization</label>
+                                    <input
+                                        class="w-full bg-surface-container-low border border-outline/30 px-md py-sm focus:ring-1 focus:ring-primary outline-none transition-all"
+                                        placeholder="Company Ltd." type="text" />
+                                </div>
+                                <div class="space-y-xs">
+                                    <label class="font-label-md text-label-md uppercase text-outline">Subject</label>
+                                    <select
+                                        class="w-full bg-surface-container-low border border-outline/30 px-md py-sm focus:ring-1 focus:ring-primary outline-none transition-all">
+                                        <option>Structural Steel Inquiry</option>
+                                        <option>Product Samples</option>
+                                        <option>Logistics &amp; Delivery</option>
+                                        <option>Quality Assurance Documentation</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="space-y-xs">
+                                <label class="font-label-md text-label-md uppercase text-outline">Message
+                                    Details</label>
+                                <textarea
+                                    class="w-full bg-surface-container-low border border-outline/30 px-md py-sm focus:ring-1 focus:ring-primary outline-none transition-all resize-none"
+                                    placeholder="Provide technical requirements or quantity estimates..."
+                                    rows="6"></textarea>
+                            </div>
+                            <button
+                                class="bg-primary text-on-primary w-full py-md font-label-md uppercase tracking-widest flex items-center justify-center gap-sm hover:gap-md transition-all group">
+                                Dispatch Message
+                                <span
+                                    class="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1">arrow_forward</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <!-- Right Column: Details & Map -->
+                <div class="md:col-span-5 space-y-lg">
+                    <!-- Headquarters Info -->
+                    <div class="bg-surface-container-low border border-outline/20 p-md space-y-md">
+                        <div>
+                            <span
+                                class="font-label-md text-label-md text-secondary uppercase tracking-widest border-b border-outline/20 pb-xs mb-md block w-fit">Headquarters</span>
+                            <p class="font-headline-md text-headline-md text-primary">Bareilly Facility</p>
+                            <p class="font-body-md text-body-md text-on-surface-variant mt-sm leading-relaxed">
+                                Khet No. 19 S R S, Lawn Manpur Chikitia, <br />
+                                Haraulia, Bareilly, Uttar Pradesh - 243004.
+                            </p>
+                        </div>
+                        <div class="grid grid-cols-1 gap-sm pt-md border-t border-outline/10">
+                            <div class="flex items-center gap-md">
+                                <div
+                                    class="w-10 h-10 rounded-full border border-outline/30 flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-primary">call</span>
+                                </div>
+                                <div>
+                                    <p class="font-caption text-caption uppercase text-outline">Operational Support</p>
+                                    <p class="font-body-md font-semibold">+91-XXXXX-XXXXX</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-md">
+                                <div
+                                    class="w-10 h-10 rounded-full border border-outline/30 flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-primary">mail</span>
+                                </div>
+                                <div>
+                                    <p class="font-caption text-caption uppercase text-outline">Corporate Communications
+                                    </p>
+                                    <p class="font-body-md font-semibold">contact@yakshsteel.com</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Map Visual -->
+                    <div
+                        class="relative w-full aspect-square md:aspect-video border border-outline/20 overflow-hidden group">
+                        <img class="w-full h-full object-cover filter grayscale contrast-125 transition-transform duration-700 group-hover:scale-105"
+                            data-alt="A high-contrast topographic map visualization of a northern Indian industrial zone, specifically focused on Bareilly. The image is styled like a technical drawing with deep charcoal blacks and subtle metallic grays, emphasizing a clean, architectural layout. Small glowing pinpoints indicate key logistical hubs. The overall aesthetic is professional, modern, and engineering-focused with sharp lines."
+                            data-location="Bareilly"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAs1rYpgucA4X_QM8UaNw1fSC3LWYTah7wX6uyN6XeU5ooRC6tE_8vpTwXvi6y8piK7WViyhyTmtOS7XyL0QzINqqGVbUnSFU1RsZ_3M3tZjG8xRGOiGhPrNfA9twpDM0bvY6EXY4Aq_FCJDVm7UzpiRUSO4zhPXedDl1JqHiY4nNuhG_laAso1vQ_POfxYalTGP_9-2jwIe12tE-XrsTfy_qWfMOXcDAn6kVAXg15hJ-MPIp0jzKu9UGVc8dEwizC_BLnwXd4StWnZ" />
+                        <div class="absolute inset-0 bg-primary/10 mix-blend-multiply"></div>
+                        <div
+                            class="absolute top-4 right-4 bg-surface p-sm border border-outline/20 shadow-sm flex items-center gap-sm">
+                            <div class="w-3 h-3 bg-error rounded-full animate-pulse"></div>
+                            <span class="font-label-md text-label-md uppercase">Live Site: Bareilly</span>
+                        </div>
+                        <button
+                            class="absolute bottom-4 left-4 bg-surface text-primary px-md py-sm font-label-md uppercase tracking-wider border border-outline/30 hover:bg-primary-container hover:text-on-primary-container transition-colors flex items-center gap-sm">
+                            <span class="material-symbols-outlined text-sm">open_in_new</span>
+                            Expand Map
+                        </button>
+                    </div>
+                    <!-- Operational Hours -->
+                    <div class="border-l-4 border-primary bg-surface-container-highest/30 p-md">
+                        <h4 class="font-label-md text-label-md uppercase tracking-[0.15em] mb-sm">Industrial Uptime</h4>
+                        <div class="flex justify-between items-center py-xs border-b border-outline/10">
+                            <span class="font-body-md">Monday — Friday</span>
+                            <span class="font-body-md font-semibold">09:00 — 21:00</span>
+                        </div>
+                        <div class="flex justify-between items-center py-xs border-b border-outline/10">
+                            <span class="font-body-md">Saturday</span>
+                            <span class="font-body-md font-semibold">10:00 — 18:00</span>
+                        </div>
+                        <div class="flex justify-between items-center py-xs">
+                            <span class="font-body-md text-outline">Sunday</span>
+                            <span class="font-body-md font-semibold text-outline">Technical Support Only</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Accessibility Commitment Section -->
+        <section class="bg-surface-container-low border-y border-outline/10">
+            <div class="max-w-container-max mx-auto px-gutter py-xl flex flex-col md:flex-row items-center gap-lg">
+                <div class="flex-1 space-y-md">
+                    <h3 class="font-headline-lg text-headline-lg">Streamlined Accessibility</h3>
+                    <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                        We prioritize seamless communication across our global industrial network. Whether you are a
+                        vendor, technical partner, or end-client, our logistics and engineering teams are structured to
+                        respond within 24 operational hours.
+                    </p>
+                    <div class="flex flex-wrap gap-md">
+                        <div class="flex items-center gap-sm">
+                            <span class="material-symbols-outlined text-primary">verified</span>
+                            <span class="font-label-md uppercase text-outline">Compliance Secured</span>
+                        </div>
+                        <div class="flex items-center gap-sm">
+                            <span class="material-symbols-outlined text-primary">support_agent</span>
+                            <span class="font-label-md uppercase text-outline">Dedicated AM</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex-1 grid grid-cols-2 gap-sm">
+                    <div
+                        class="h-32 bg-white border border-outline/10 flex flex-col items-center justify-center group hover:bg-primary hover:text-on-primary transition-all cursor-pointer">
+                        <span class="material-symbols-outlined text-3xl mb-xs">download</span>
+                        <span class="font-label-md uppercase text-center">Company Profile</span>
+                    </div>
+                    <div
+                        class="h-32 bg-white border border-outline/10 flex flex-col items-center justify-center group hover:bg-primary hover:text-on-primary transition-all cursor-pointer">
+                        <span class="material-symbols-outlined text-3xl mb-xs">description</span>
+                        <span class="font-label-md uppercase text-center">Spec Sheets</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-inverse-surface dark:bg-tertiary-container w-full py-xl border-t border-outline/30">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-md max-w-container-max mx-auto px-gutter">
+            <div class="col-span-1 md:col-span-1">
+                <div class="font-headline-md text-headline-md font-bold text-surface mb-md">YAKSH STEEL</div>
+                <p class="text-secondary-fixed-dim font-body-md max-w-xs">Industrial excellence secured through rigorous
+                    engineering and architectural precision.</p>
+            </div>
+            <div class="space-y-sm">
+                <h4 class="text-surface-bright font-label-md uppercase tracking-widest mb-md">Quick Links</h4>
+                <nav class="flex flex-col gap-sm">
+                    <a class="text-secondary-fixed-dim hover:text-surface-bright transition-colors font-body-md"
+                        href="#">Products Portfolio</a>
+                    <a class="text-secondary-fixed-dim hover:text-surface-bright transition-colors font-body-md"
+                        href="#">Infrastructure</a>
+                    <a class="text-secondary-fixed-dim hover:text-surface-bright transition-colors font-body-md"
+                        href="#">Quality Standards</a>
+                    <a class="text-secondary-fixed-dim hover:text-surface-bright transition-colors font-body-md"
+                        href="#">Careers</a>
+                </nav>
+            </div>
+            <div class="space-y-sm">
+                <h4 class="text-surface-bright font-label-md uppercase tracking-widest mb-md">Compliance</h4>
+                <nav class="flex flex-col gap-sm">
+                    <a class="text-secondary-fixed-dim hover:text-surface-bright transition-colors font-body-md"
+                        href="#">Privacy Policy</a>
+                    <a class="text-secondary-fixed-dim hover:text-surface-bright transition-colors font-body-md"
+                        href="#">Terms of Service</a>
+                    <a class="text-secondary-fixed-dim hover:text-surface-bright transition-colors font-body-md"
+                        href="#">Sitemap</a>
+                    <a class="text-secondary-fixed-dim hover:text-surface-bright transition-colors font-body-md"
+                        href="#">Global Locations</a>
+                </nav>
+            </div>
+            <div class="space-y-md">
+                <h4 class="text-surface-bright font-label-md uppercase tracking-widest mb-md">Follow Us</h4>
+                <div class="flex gap-md">
+                    <div
+                        class="w-8 h-8 border border-outline/50 flex items-center justify-center text-secondary-fixed-dim hover:text-white hover:border-white transition-all cursor-pointer">
+                        <span class="material-symbols-outlined text-sm">terminal</span>
+                    </div>
+                    <div
+                        class="w-8 h-8 border border-outline/50 flex items-center justify-center text-secondary-fixed-dim hover:text-white hover:border-white transition-all cursor-pointer">
+                        <span class="material-symbols-outlined text-sm">share</span>
+                    </div>
+                    <div
+                        class="w-8 h-8 border border-outline/50 flex items-center justify-center text-secondary-fixed-dim hover:text-white hover:border-white transition-all cursor-pointer">
+                        <span class="material-symbols-outlined text-sm">public</span>
+                    </div>
+                </div>
+                <div class="pt-md">
+                    <p class="text-secondary-fixed-dim font-caption uppercase tracking-tighter">ISO 9001:2015 CERTIFIED
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-container-max mx-auto px-gutter mt-xl pt-lg border-t border-outline/10">
+            <p class="text-secondary-fixed-dim font-body-md text-sm opacity-60">© 2024 YAKSH STEEL INDUSTRY LLP.
+                INDUSTRIAL EXCELLENCE SECURED.</p>
+        </div>
+    </footer>
+    <script>
+        // Micro-interactions for form inputs
+        const inputs = document.querySelectorAll('input, select, textarea');
+        inputs.forEach(input => {
+            input.addEventListener('focus', () => {
+                input.parentElement.querySelector('label').classList.replace('text-outline', 'text-primary');
+            });
+            input.addEventListener('blur', () => {
+                input.parentElement.querySelector('label').classList.replace('text-primary', 'text-outline');
+            });
+        });
+        const btn = document.getElementById("menu-btn");
+        const menu = document.getElementById("mobile-menu");
+
+        btn.addEventListener("click", () => {
+            menu.classList.toggle("hidden");
+        });
+    </script>
+</body>
+
+</html>
